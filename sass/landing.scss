@@ -1,6 +1,7 @@
 $black: #000;
 $blue: #133A8A;
 $white: #FFF;
+$gray: #C2C2C2;
 
 body {
   background-color: $black;
@@ -56,18 +57,48 @@ body {
     &__headline-1 {
       font-size: 35px;
     }
+  }
+}
 
-    &__button {
-      background-color: $blue;
-      border: none;
-      cursor: pointer;
-      color: $white;
-      font-size: 16px;
-      margin-top: 30px;
-      height: 45px;
-      width: 220px;
+.landing-banner {
+  height: 570px;
+
+  &__img {
+    height: 570px;
+    position: absolute;
+    width: 100%;
+    z-index: -1;
+
+    &--big {
+      height: 720px;
     }
   }
+
+  &__text {
+    color: $white;
+    font-size: 55px;
+    height: 401px;
+    margin: 0 auto;
+    padding-top: 230px;
+    text-align: center;
+    width: 817px;
+
+    &--big {
+      height: 471px;
+      padding-top: 300px;
+    }
+  }
+}
+
+.button {
+  background-color: $blue;
+  border: 0;
+  color: $white;
+  cursor: pointer;
+  font-size: 16px;
+  height: 45px;
+  margin-top: 30px;
+  width: 220px;
 }
 
 .plans-container {
@@ -85,5 +116,45 @@ body {
   &__headline-3 {
     font-size: 25px;
     margin-top: 12px;
+  }
+}
+
+.plans-table {
+  height: 325px;
+  margin: 30px auto;
+  width: 909px;
+
+  &__column {
+    color: $white;
+    float: left;
+    height: 308px;
+    margin-top: 8px;
+    text-align: center;
+    width: 253px;
+  }
+
+  &__line {
+    background-color: $gray;
+    float: left;
+    height: 325px;
+    margin: 0 37px;
+    width: 1px;
+  }
+}
+
+.plan-price {
+  font-size: 35px;
+
+  &__sim{
+    font-size: 20px;
+    margin-left: -10px;
+    margin-top: 5px;
+    position: absolute;
+  }
+
+  &__coin {
+    font-size: 20px;
+    margin-top: 5px;
+    position: absolute;
   }
 }
