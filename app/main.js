@@ -1,5 +1,5 @@
 import React from 'react';
-import Landing from './components/Landing';
+import Landing from './components/Landing/Landing';
 import { render } from 'react-dom';
 import './../sass/landing.scss';
 import './../sass/modal.scss';

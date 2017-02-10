@@ -1,7 +1,8 @@
 import React, { PropTypes } from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
-import Plans from './Plans.js';
-import Modal from './Modal.js';
+import { request } from '../../helpers/fetch-server.js';
+import Plans from '../Plans.js';
+import Modal from '../Modal.js';
 
 const responseExample = {
   "header": "Sports go online",
@@ -57,6 +58,15 @@ export default React.createClass({
     this.openCloseModal('modalSignUp');
   },
   componentWillMount() {
+    const { api } = this.props;
+    request({
+      url: `${ api }/api/pages/index/`,
+    }).then(response => {
+      console.log(response);
+    }).catch(error => {
+      console.log(error);
+    }
+    );
   },
   render() {
     const { data, modalSignUp } = this.state;
