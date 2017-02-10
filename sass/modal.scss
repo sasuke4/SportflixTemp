@@ -1,0 +1,50 @@
+$black: #171717;
+$black-input: #2C2C2C;
+$blue: #133A8A;
+$white: #FFF;
+$gray: #C2C2C2;
+
+.modal {
+  background-color: $black;
+  display: none;
+  height: 541px;
+  left: calc(50% - 220px);
+  margin-top: 150px;
+  position: fixed;
+  width: 430px;
+  z-index: 1000;
+
+  &__img {
+    cursor: pointer;
+    float: right;
+    height: 15px;
+    margin-right: 20px;
+    margin-top: 20px;
+    width: 15px;
+  }
+
+  &--on {
+    display: block;
+  }
+}
+
+.modal-input {
+  margin: 70px 45px;
+  text-align: center;
+
+  &__input {
+    float: left;
+    background-color: $black-input;
+    border: 0;
+    height: 40px;
+    margin-bottom: 15px;
+    width: 100%;
+  }
+
+  &__conditions {
+    float: left;
+    color: $white;
+    font-size: 12px;
+    margin-top: 15px;
+  }
+}
