@@ -1,9 +1,9 @@
 import React from 'react';
 import Landing from './components/Landing';
 import { render } from 'react-dom';
-import './../sass/home.scss';
+import './../sass/landing.scss';
 
 render(
-  <Landing />,
+  <Landing location='http://localhost:8000'/>,
   document.querySelector('.app')
 );
