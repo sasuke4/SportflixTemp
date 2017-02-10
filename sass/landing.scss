@@ -1,0 +1,11 @@
+$black: #000;
+
+@function em($pixels, $context: $browser-context) {
+  @return #{$pixels / $context}em;
+}
+
+body {
+  background-color: $black;
+  font-family: 'Open Sans';
+  font-size: 16px;
+}
