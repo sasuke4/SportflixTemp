@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
+import { v4 } from 'uuid';
 
 export default React.createClass({
   displayName: 'Plans',
@@ -26,12 +27,12 @@ export default React.createClass({
                           </div>;
 
       if (!Object.is(index, data.length - 1)) {
-        return <div>
+        return <div key={ v4() } >
                 { plansColumn }
                 <div className='plans-table__line'></div>
                </div>;
       }
-      return <div>
+      return <div key={ v4() }>
               { plansColumn }
              </div>;
     });

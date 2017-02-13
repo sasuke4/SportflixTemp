@@ -1,10 +1,11 @@
 import React from 'react';
 import SignUp from './SignUp';
+import SignIn from './SignIn';
 
 export function modalType(name) {
-  const modal = Object.is(name, 'modalSignUp')
+  const modal = Object.is(name, 'signup')
               ? <SignUp />
-              : Object.is(name, 'modalSignIn')
+              : Object.is(name, 'signin')
               ? <SignIn />
               : undefined;
 

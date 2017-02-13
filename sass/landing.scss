@@ -27,6 +27,9 @@ body {
   }
 
   &__sign-in {
+    background-color: $blue;
+    border: 0;
+    color: $white;
     cursor: pointer;
     float: right;
     font-size: 20px;
