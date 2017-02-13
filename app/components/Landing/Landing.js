@@ -47,7 +47,8 @@ export default React.createClass({
   getInitialState() {
     return {
       data: responseExample,
-      modalSignUp: true,
+      modalSignUp: false,
+      modalSignIn: true
     };
   },
   openCloseModal(name) {
@@ -56,6 +57,9 @@ export default React.createClass({
   },
   openCloseModalSingUp() {
     this.openCloseModal('modalSignUp');
+  },
+  openCloseModalSignIn() {
+    this.openCloseModal('modalSignIn');
   },
   componentWillMount() {
     const { api } = this.props;
@@ -69,7 +73,7 @@ export default React.createClass({
     );
   },
   render() {
-    const { data, modalSignUp } = this.state;
+    const { data, modalSignUp, modalSignIn } = this.state;
     const { header, headline_1, headline_2, headline_3, image1, image2, image3, subscription_plans } = data;
     const { api, location } = this.props;
     return (
@@ -86,9 +90,25 @@ export default React.createClass({
             <button className='button button--gray' type="button" >Regístrate</button>
           </div>
         </Modal>
+        <Modal closeModal={ this.openCloseModalSignIn } show={ modalSignIn } location={ location } >
+          <div className='modal-input'>
+            <div className='modal-input__errors'>
+              Tu correo electrónico/contraseña son incorrectos. Intenta de nuevo.
+            </div>
+            <input placeholder='Correo Electrónico' className='modal-input__input'/>
+            <input placeholder='Constraseña' className='modal-input__input'/>
+            <div className='modal-input__forget'>
+              ¿Olvidaste tu contraseña?
+            </div>
+            <button className='button button--block button--gray' type="button" >Iniciar sesión</button>
+            <div className='modal-input__create'>
+              ¿No tienes cuenta? <span>Regístrate</span>
+            </div>
+          </div>
+        </Modal>
         <div className='landing-top'>
           <div className='landing-top__logo'>SPORTFLIX</div>
-          <div className='landing-top__sign-in'>INICIAR SESIÓN</div>
+          <div className='landing-top__sign-in' onClick={ this.openCloseModalSignIn }>INICIAR SESIÓN</div>
         </div>
         <div className='landing-header'>
           <img className='landing-header__img' src={ `${ api }${ image1 }` } alt="header-img" />
