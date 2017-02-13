@@ -96,7 +96,7 @@ export default React.createClass({
               Tu correo electrónico/contraseña son incorrectos. Intenta de nuevo.
             </div>
             <input placeholder='Correo Electrónico' className='modal-input__input'/>
-            <input placeholder='Constraseña' className='modal-input__input'/>
+            <input placeholder='Constraseña' type='password' className='modal-input__input'/>
             <div className='modal-input__forget'>
               ¿Olvidaste tu contraseña?
             </div>
