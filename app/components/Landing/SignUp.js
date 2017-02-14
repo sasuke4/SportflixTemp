@@ -9,13 +9,14 @@ export default React.createClass({
     api: PropTypes.string.isRequired,
   },
   onclick() {
-    const { api } = this.props;
+    const { api, closeModal } = this.props;
     request({
       url: `${ api }/api/users/`,
       method: 'post',
       body: new FormData(this.refs.form),
     }).then(response => {
       console.log(response.payload.message);
+      closeModal();
     }).catch(error =>
       console.log(error)
     );
