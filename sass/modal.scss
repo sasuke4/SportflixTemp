@@ -33,17 +33,19 @@ $gray: #C2C2C2;
   text-align: center;
 
   &__input {
-    float: left;
     background-color: $black-input;
     border: 0;
+    color: $white;
+    float: left;
     height: 40px;
     margin-bottom: 15px;
-    width: 100%;
+    padding: 0 15px;
+    width: 310px;
   }
 
   &__conditions {
-    float: left;
     color: $white;
+    float: left;
     font-size: 12px;
     margin-top: 15px;
   }

@@ -7,8 +7,8 @@ export default React.createClass({
   render() {
     return (
       <div className='modal-input'>
-        <input className='modal-input__input'/>
-        <input className='modal-input__input'/>
+        <input placeholder='Correo Electrónico' className='modal-input__input'/>
+        <input type='password' placeholder='Contraseña' className='modal-input__input'/>
         <button className='button button--gray' type="button" >Iniciar Sesión</button>
       </div>
     );
