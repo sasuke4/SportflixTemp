@@ -8,10 +8,10 @@ export default React.createClass({
   propTypes: {
     api: PropTypes.string.isRequired,
   },
-  onClick() {
+  onclick() {
     const { api } = this.props;
     request({
-      url: `${ api }/users/`,
+      url: `${ api }/api/users/`,
       method: 'post',
       body: new FormData(this.refs.form),
     }).then(response => {
@@ -30,7 +30,7 @@ export default React.createClass({
           Al hacer click en registrarte, estás indicando que has leído y estás de acuerdo con los
           Términos de Servicio y Política de Privacidad de SPORTFLIX.
         </span>
-        <button className='button button--gray' type="button" >Regístrate</button>
+        <button className='button button--gray' type="button" onClick={ this.onclick }>Regístrate</button>
       </form>
     );
   },
