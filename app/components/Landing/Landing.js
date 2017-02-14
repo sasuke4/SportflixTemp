@@ -42,7 +42,7 @@ export default React.createClass({
     const { data, currentModal, showModal } = this.state;
     const { header, headline_1, headline_2, headline_3, image1, image2, image3, subscription_plans = [] } = data;
     const { api, location } = this.props;
-    const actualModal = modalType(currentModal);
+    const actualModal = modalType({ currentModal, api });
     return (
       <div className='landing'>
         <Modal closeModal={ this.closeModal } show={ showModal } location={ location } >
