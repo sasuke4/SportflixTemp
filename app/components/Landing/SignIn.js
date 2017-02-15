@@ -16,9 +16,8 @@ export default React.createClass({
       method: 'post',
       body: new FormData(this.refs.form),
     }).then(response => {
-      console.log(response.payload);
-      dispatch(setSesion(response.payload.object));
       closeModal();
+      dispatch(setSesion(response.payload.object));
     }).catch(error =>
       console.log(error)
     );
