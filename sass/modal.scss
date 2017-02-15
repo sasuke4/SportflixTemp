@@ -3,7 +3,6 @@ $black-input: #2C2C2C;
 $blue: #133A8A;
 $white: #FFF;
 $gray: #C2C2C2;
-$text: #CCCCCC;
 
 .modal {
   background-color: $black;
@@ -30,6 +29,7 @@ $text: #CCCCCC;
 }
 
 .modal-input {
+  float: left;
   margin: 70px 45px;
   text-align: center;
 
@@ -38,10 +38,7 @@ $text: #CCCCCC;
     border: 0;
     height: 40px;
     margin-bottom: 15px;
-    width: calc(100% - 20px);
-    color: $text;
-    padding: 10px;
-    font-size: 14px;
+    width: 100%;
   }
 
   &__conditions {
@@ -49,32 +46,5 @@ $text: #CCCCCC;
     color: $white;
     font-size: 12px;
     margin-top: 15px;
-  }
-
-  &__forget {
-    text-align: right;
-    color: $text;
-    font-size: 12px;
-    margin-bottom: 15px;
-    cursor: pointer;
-  }
-
-  &__create {
-    color: $text;
-    font-size: 14px;
-    margin-top: 15px;
-  }
-
-  &__create span {
-    color: $text;
-    font-weight: bolder;
-    cursor: pointer;
-  }
-
-  &__errors {
-    color: $gray;
-    font-size: 13px;
-    font-weight: bolder;
-    margin-bottom: 15px;
   }
 }
