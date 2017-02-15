@@ -14,7 +14,7 @@ export default React.createClass({
     request({
       url: `${ api }/api/users/signin/`,
       method: 'post',
-      body: new FormData(this.refs.form),
+      body: new FormData(this.refs.recover),
     }).then(response => {
       closeModal();
       dispatch(setSesion(response.payload.object));
@@ -28,18 +28,17 @@ export default React.createClass({
   },
   render() {
     return (
-      <form className='modal-input' ref='form'>
+      <form className='modal-input' ref='recover'>
+        <h3 className='modal-input__title'>
+          ¿OLVIDASTE TU CONTRASEÑA?
+        </h3>
         <div className='modal-input__errors'>
           Tu correo electrónico/contraseña son incorrectos. Intenta de nuevo.
         </div>
-        <input name='email' placeholder='Correo Electrónico' className='modal-input__input'/>
-        <input name='password' type='password' placeholder='Contraseña' className='modal-input__input'/>
-        <div data-name='recover' className='modal-input__forget' onClick={ this.onSwitch }>
-          ¿Olvidaste tu contraseña?
-        </div>
-        <button className='button button--block button--gray' type="button" onClick={ this.onclick } >Iniciar Sesión</button>
+        <input type='email' placeholder='Correo Electrónico' className='modal-input__input'/>
+        <button className='button button--block button--gray' type="button" >Enviar</button>
         <div className='modal-input__create'>
-          ¿No tienes cuenta? <span data-name='signup' onClick={ this.onSwitch } >Regístrate</span>
+          Volver a <span data-name='signin' onClick={ this.onSwitch }>Inicia sesión</span>
         </div>
       </form>
     );
