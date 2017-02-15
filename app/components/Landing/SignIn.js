@@ -24,8 +24,7 @@ export default React.createClass({
   },
   onSwitch(event) {
     const { switchModal } = this.props;
-    console.log(event.target.id);
-    switchModal(event.target.id);
+    switchModal(event.target.dataset.name);
   },
   render() {
     return (
@@ -35,12 +34,12 @@ export default React.createClass({
         </div>
         <input name='email' placeholder='Correo Electrónico' className='modal-input__input'/>
         <input name='password' type='password' placeholder='Contraseña' className='modal-input__input'/>
-        <div id='recover' className='modal-input__forget' onClick={ this.onSwitch }>
+        <div data-name='recover' className='modal-input__forget' onClick={ this.onSwitch }>
           ¿Olvidaste tu contraseña?
         </div>
         <button className='button button--block button--gray' type="button" onClick={ this.onclick } >Iniciar Sesión</button>
         <div className='modal-input__create'>
-          ¿No tienes cuenta? <span id='signup' onClick={ this.onSwitch } >Regístrate</span>
+          ¿No tienes cuenta? <span data-name='signup' onClick={ this.onSwitch } >Regístrate</span>
         </div>
       </form>
     );

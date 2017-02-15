@@ -24,8 +24,7 @@ export default React.createClass({
   },
   onSwitch(event) {
     const { switchModal } = this.props;
-    console.log(event.target.id);
-    switchModal(event.target.id);
+    switchModal(event.target.dataset.name);
   },
   render() {
     return (
@@ -39,7 +38,7 @@ export default React.createClass({
         <input type='email' placeholder='Correo Electrónico' className='modal-input__input'/>
         <button className='button button--block button--gray' type="button" >Enviar</button>
         <div className='modal-input__create'>
-          Volver a <span id='signin' onClick={ this.onSwitch }>Inicia sesión</span>
+          Volver a <span data-name='signin' onClick={ this.onSwitch }>Inicia sesión</span>
         </div>
       </form>
     );
