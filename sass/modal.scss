@@ -50,4 +50,31 @@ $gray: #C2C2C2;
     font-size: 12px;
     margin-top: 15px;
   }
+
+  &__forget {
+    text-align: right;
+    color: $white;
+    font-size: 12px;
+    cursor: pointer;
+  }
+
+  &__create {
+    color: $white;
+    font-size: 14px;
+    margin-top: 15px;
+  }
+
+  &__create span {
+    color: $white;
+    font-weight: bolder;
+    cursor: pointer;
+  }
+
+  &__errors {
+    text-align: left;
+    color: $white;
+    font-size: 13px;
+    font-weight: bolder;
+    margin-bottom: 15px;
+  }
 }
