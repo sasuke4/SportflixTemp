@@ -1,11 +1,14 @@
 import React from 'react';
-import Landing from './components/Landing/Landing';
+import App from './AppContainer';
 import { render } from 'react-dom';
-import './../sass/landing.scss';
-import './../sass/modal.scss';
-const location = window.location.origin;
+import { Provider } from 'react-redux';
+import store from 'state/store';
+import 'sass/landing.scss';
+import 'sass/modal.scss';
 
 render(
-  <Landing api='http://localhost:8000' location={ location } />,
+  <Provider store={ store }>
+    <App />
+  </Provider>,
   document.querySelector('.app')
 );

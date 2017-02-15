@@ -8,6 +8,15 @@ module.exports = {
     filename: '[name].js',
     publicPath: '/',
   },
+  resolve: {
+    alias: {
+      app: path.resolve('./app'),
+      helpers: path.resolve('./app/helpers'),
+      components: path.resolve('./app/components'),
+      state: path.resolve('./app/state'),
+      sass: path.resolve('./sass'),
+    },
+  },
   module: {
     loaders: [
       {
