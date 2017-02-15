@@ -11,8 +11,14 @@ body {
   margin: 0;
 }
 
-.landing {
+.landing-container {
   width: 100%;
+}
+
+.landing {
+  &--blur {
+    filter: blur(5px);
+  }
 }
 
 .landing-top {
