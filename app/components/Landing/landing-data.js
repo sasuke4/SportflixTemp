@@ -1,6 +1,6 @@
 import React from 'react';
 import SignUp from './SignUp';
-import SignIn from './SignIn';
+import SignIn from './SignInContainer';
 
 export function modalType({ api, closeModal, currentModal } = {}) {
   const modal = Object.is(currentModal, 'signup')

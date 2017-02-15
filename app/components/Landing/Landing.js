@@ -1,8 +1,8 @@
 import React, { PropTypes } from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
-import Plans from '../Plans.js';
-import Modal from '../Modal.js';
-import { request } from '../../helpers/fetch-server.js';
+import Plans from 'components/Plans.js';
+import Modal from 'components/Modal.js';
+import { request } from 'helpers/fetch-server.js';
 import { modalType } from './landing-data.js';
 import { head } from 'lodash';
 
@@ -21,7 +21,6 @@ export default React.createClass({
     };
   },
   openModal(event) {
-    console.log(event.target.name);
     this.setState({ showModal: true, currentModal: event.target.name });
   },
   closeModal() {

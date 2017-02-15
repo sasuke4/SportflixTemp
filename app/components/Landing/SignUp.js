@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
-import { request } from '../../helpers/fetch-server.js';
+import { request } from 'helpers/fetch-server.js';
 
 export default React.createClass({
   displayName: 'SignUp',
