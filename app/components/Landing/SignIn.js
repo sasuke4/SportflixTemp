@@ -27,7 +27,7 @@ export default React.createClass({
       <form className='modal-input' ref='form'>
         <input name='email' placeholder='Correo Electrónico' className='modal-input__input'/>
         <input name='password' type='password' placeholder='Contraseña' className='modal-input__input'/>
-        <button className='button button--gray' type="button" onClick={ this.onclick } >Iniciar Sesión</button>
+        <button className='button button--block button--gray' type="button" onClick={ this.onclick } >Iniciar Sesión</button>
       </form>
     );
   },

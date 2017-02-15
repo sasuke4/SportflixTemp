@@ -31,7 +31,7 @@ export default React.createClass({
           Al hacer click en registrarte, estás indicando que has leído y estás de acuerdo con los
           Términos de Servicio y Política de Privacidad de SPORTFLIX.
         </span>
-        <button className='button button--gray' type="button" onClick={ this.onclick }>Regístrate</button>
+        <button className='button button--block button--gray' type="button" onClick={ this.onclick }>Regístrate</button>
       </form>
     );
   },
