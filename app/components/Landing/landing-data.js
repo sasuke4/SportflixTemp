@@ -1,5 +1,6 @@
 import React from 'react';
 import SignUp from './SignUp';
+import Recover from './Recover';
 import SignIn from './SignInContainer';
 
 export function modalType({ api, closeModal, switchModal, currentModal } = {}) {
@@ -7,6 +8,8 @@ export function modalType({ api, closeModal, switchModal, currentModal } = {}) {
               ? <SignUp api={ api } closeModal={ closeModal }/>
               : Object.is(currentModal, 'signin')
               ? <SignIn api={ api } closeModal={ closeModal } switchModal={ switchModal }/>
+              : Object.is(currentModal, 'recover')
+              ? <Recover api={ api } closeModal={ closeModal } switchModal={ switchModal }/>
               : undefined;
 
   return modal;
