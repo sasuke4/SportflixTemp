@@ -24,7 +24,6 @@ export default React.createClass({
     );
   },
   render() {
-    //const { images } = this.state;
     const images = [
       {
           "id": 1,
@@ -76,7 +75,7 @@ export default React.createClass({
       }
     ]
     const { api } = this.props;
-    const imgs = images.map((img) => <ProfileImage api={ api } key={img.id} img={ img }/>)
+    const imgs = images.map(img => <ProfileImage api={ api } key={img.id} img={ img }/>);
 
     return (
       <div className='modal-input--avatar'>

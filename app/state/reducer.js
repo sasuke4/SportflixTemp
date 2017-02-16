@@ -2,6 +2,8 @@ const initialState = {
   token: 'joshua',
   status: '',
   group: '',
+  api: 'http://localhost:8000',
+  location: window.location.origin,
 };
 
 function reducer(state = initialState, action = {}) {

@@ -8,7 +8,7 @@ $gray: #C2C2C2;
   background-color: $black;
   display: none;
   height: 541px;
-  left: calc(50% - 220px);
+  left: calc(50% - 215px);
   margin-top: 150px;
   position: fixed;
   width: 430px;
@@ -21,6 +21,12 @@ $gray: #C2C2C2;
     margin-right: 20px;
     margin-top: 20px;
     width: 15px;
+  }
+
+  &--big {
+    height: 545px;
+    left: calc(50% - 440px);
+    width: 880px;
   }
 
   &--on {

@@ -1,9 +1,9 @@
 import React, { PropTypes } from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
-import Plans from 'components/Plans.js';
-import Modal from 'components/Modal.js';
-import { request } from 'helpers/fetch-server.js';
-import { modalType } from './landing-data.js';
+import Plans from 'components/Plans';
+import Modal from 'components/Modal';
+import { request } from 'helpers/fetch-server';
+import { selectModal } from 'helpers/selectModal';
 import { head } from 'lodash';
 
 export default React.createClass({
@@ -44,7 +44,7 @@ export default React.createClass({
     const { data, currentModal, showModal } = this.state;
     const { header, headline_1, headline_2, headline_3, image1, image2, image3, subscription_plans = [] } = data;
     const { api, location } = this.props;
-    const actualModal = modalType({ api, closeModal: this.closeModal, switchModal: this.switchModal, currentModal });
+    const actualModal = selectModal({ api, closeModal: this.closeModal, switchModal: this.switchModal, currentModal });
     const classNameLanding = showModal ? 'landing landing--blur' : 'landing';
     return (
       <div className='landing-container'>
