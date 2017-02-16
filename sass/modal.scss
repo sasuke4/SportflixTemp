@@ -33,6 +33,12 @@ $gray: #C2C2C2;
   margin: 70px 45px;
   text-align: center;
 
+  &--avatar {
+    float: left;
+    margin: 20px 45px;
+    text-align: center;
+  }
+
   &__input {
     background-color: $black-input;
     border: 0;
@@ -42,6 +48,17 @@ $gray: #C2C2C2;
     margin-bottom: 15px;
     padding: 0 15px;
     width: 310px;
+  }
+
+  &__img {
+    opacity: .3;
+    width: 60px;
+    margin: 5px 20px;
+
+  }
+
+  &__img:hover {
+    opacity: 1;
   }
 
   &__conditions {

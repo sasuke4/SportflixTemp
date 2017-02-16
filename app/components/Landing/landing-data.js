@@ -1,4 +1,5 @@
 import React from 'react';
+import Avatar from './Avatar';
 import SignUp from './SignUp';
 import Recover from './Recover';
 import SignIn from './SignInContainer';
@@ -10,6 +11,8 @@ export function modalType({ api, closeModal, switchModal, currentModal } = {}) {
               ? <SignIn api={ api } closeModal={ closeModal } switchModal={ switchModal }/>
               : Object.is(currentModal, 'recover')
               ? <Recover api={ api } closeModal={ closeModal } switchModal={ switchModal }/>
+              : Object.is(currentModal, 'avatar')
+              ? <Avatar api={ api } closeModal={ closeModal } />
               : undefined;
 
   return modal;
