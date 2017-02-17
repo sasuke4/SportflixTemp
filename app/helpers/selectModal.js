@@ -1,5 +1,5 @@
 import React from 'react';
-import Avatar from 'components/Landing/Avatar';
+import Avatar from 'components/Landing/AvatarContainer';
 import Card from 'components/Payment/Card';
 import SignUp from 'components/Landing/SignUp';
 import Recover from 'components/Landing/Recover';
@@ -8,12 +8,12 @@ import Plans from 'components/Plans';
 
 export function selectModal({ api, closeModal, switchModal, currentModal, subscription_plans = [], location } = {}) {
   const modal = {
-    signup: <SignUp api={ api } closeModal={ closeModal }/>,
-    signin: <SignIn api={ api } closeModal={ closeModal } switchModal={ switchModal }/>,
-    recover: <Recover api={ api } closeModal={ closeModal } switchModal={ switchModal }/>,
-    avatar: <Avatar api={ api } closeModal={ closeModal } />,
-    card: <Card api={ api } closeModal={ closeModal } />,
-    payment: <Plans data={ subscription_plans } location={ location } payment={ true } switchModal={ switchModal } />
+    signup: <SignUp api={ api } closeModal={ closeModal } />,
+    signin: <SignIn api={ api } closeModal={ closeModal } switchModal={ switchModal } />,
+    recover: <Recover api={ api } closeModal={ closeModal } switchModal={ switchModal } />,
+    avatar: <Avatar closeModal={ closeModal } />,
+    card: <Card api={ api } closeModal={ closeModal } switchModal={ switchModal } />,
+    payment: <Plans data={ subscription_plans } location={ location } payment={ true } switchModal={ switchModal } />,
   };
 
   return modal[currentModal];

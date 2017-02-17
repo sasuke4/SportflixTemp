@@ -16,10 +16,11 @@ $gray: #C2C2C2;
 
   &__img {
     cursor: pointer;
-    float: right;
     height: 15px;
     margin-right: 20px;
     margin-top: 20px;
+    position: absolute;
+    right: 0;
     width: 15px;
   }
 
@@ -40,7 +41,6 @@ $gray: #C2C2C2;
   text-align: center;
 
   &--avatar {
-    float: left;
     margin: 20px 45px;
     text-align: center;
   }
@@ -54,13 +54,6 @@ $gray: #C2C2C2;
     margin-bottom: 15px;
     padding: 0 15px;
     width: 310px;
-  }
-
-  &__img {
-    opacity: .3;
-    width: 60px;
-    margin: 5px 20px;
-
   }
 
   &__img:hover {

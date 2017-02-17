@@ -6,6 +6,7 @@ import store from 'state/store';
 import 'sass/landing.scss';
 import 'sass/modal.scss';
 import 'sass/plans.scss';
+import 'sass/avatar.scss';
 
 render(
   <Provider store={ store }>

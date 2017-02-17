@@ -1,0 +1,11 @@
+.images-container {
+  margin-top: 30px;
+  min-height: 330px;
+
+  &__img {
+    cursor: pointer;
+    margin: 5px 20px;
+    opacity: .3;
+    width: 60px;
+  }
+}
