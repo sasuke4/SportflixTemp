@@ -12,10 +12,10 @@ export default React.createClass({
   propTypes: {
     api: PropTypes.string.isRequired,
     location: PropTypes.string.isRequired,
+    data: PropTypes.object.isRequired,
   },
   getInitialState() {
     return {
-      data: {},
       currentModal: 'signup',
       showModal: false,
     };
@@ -29,21 +29,10 @@ export default React.createClass({
   closeModal() {
     this.setState({ showModal: false });
   },
-  componentWillMount() {
-    const { api } = this.props;
-    request({
-      url: `${ api }/api/pages/index/`,
-    }).then(response => {
-      this.setState({ data: head(response.payload) });
-    }).catch(error => {
-      console.log(error);
-    }
-    );
-  },
   render() {
-    const { data, currentModal, showModal } = this.state;
+    const { currentModal, showModal } = this.state;
+    const { api, location, data } = this.props;
     const { header, headline_1, headline_2, headline_3, image1, image2, image3, subscription_plans = [] } = data;
-    const { api, location } = this.props;
     const actualModal = selectModal({ api, closeModal: this.closeModal, switchModal: this.switchModal, currentModal });
     const classNameLanding = showModal ? 'landing landing--blur' : 'landing';
     return (
