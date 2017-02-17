@@ -22,10 +22,24 @@ $gray-button: #6C6C6C;
   }
 }
 
+.plans-payment {
+  margin-top: 60px;
+  text-align: center;
+
+  &__title {
+    color: $white;
+    font-size: 20px;
+  }
+}
+
 .plans-table {
   height: 325px;
   margin: 30px auto;
   width: 909px;
+
+  &--payment {
+    width: 795px;
+  }
 
   &__column {
     color: $white;
@@ -34,6 +48,10 @@ $gray-button: #6C6C6C;
     margin-top: 8px;
     text-align: center;
     width: 253px;
+
+    &--payment {
+      width: 207px;
+    }
   }
 
   &__line {
@@ -45,26 +63,52 @@ $gray-button: #6C6C6C;
   }
 }
 
+.plan-name {
+  font-size: 25px;
+
+  &--payment {
+    font-size: 20px;
+  }
+}
+
 .plan-price {
   font-size: 35px;
+  margin-left: -10px;
+
+  &--payment {
+    font-size: 30px;
+  }
 
   &__sim {
     font-size: 20px;
     margin-left: -10px;
     margin-top: 5px;
     position: absolute;
+
+    &--payment {
+      font-size: 15px;
+    }
   }
 
   &__coin {
     font-size: 20px;
     margin-top: 5px;
     position: absolute;
+
+    &--payment {
+      font-size: 15px;
+    }
   }
 }
 
 .plan-description {
+  font-size: 18px;
   margin-top: 25px;
   text-align: left;
+
+  &--payment {
+    font-size: 15px;
+  }
 
   &__element {
     margin-top: 15px;

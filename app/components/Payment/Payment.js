@@ -27,7 +27,7 @@ export default React.createClass({
     this.setState({ currentModal: nextModal });
   },
   closeModal() {
-    this.setState({ showModal: false });
+    this.setState({ showModal: true });
   },
   componentWillMount() {
     const { api } = this.props;
@@ -42,9 +42,9 @@ export default React.createClass({
   },
   render() {
     const { data, currentModal, showModal } = this.state;
-    const { image1 } = data;
+    const { image1, subscription_plans } = data;
     const { api, location } = this.props;
-    const actualModal = selectModal({ api, closeModal: this.closeModal, switchModal: this.switchModal, currentModal });
+    const actualModal = selectModal({ api, closeModal: this.closeModal, switchModal: this.switchModal, currentModal, subscription_plans, location });
     const classNameLanding = showModal ? 'landing landing--blur' : 'landing';
     const classNameModal = Object.is(currentModal, 'payment') ? 'modal--big' : undefined;
 

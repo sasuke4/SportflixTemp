@@ -8,22 +8,33 @@ export default React.createClass({
   propTypes: {
     data: PropTypes.array.isRequired,
   },
-  componentWillMount() {
+  switchModal() {
+    const { switchModal } = this.props;
+    switchModal('card');
   },
   render() {
-    const { data, location } = this.props;
+    const { data, location, payment = false } = this.props;
+    const classPlansTable = payment ? 'plans-table plans-table--payment' : 'plans-table';
     const plans = data.map((plan, index) => {
       const { name, price, available_screens, ppv } = plan;
       const srcPpv = ppv ? `${ location }/img/ok.svg` : `${ location }/img/not.svg`;
+      const classNameColumn = payment ? 'plans-table__column plans-table__column--payment' : 'plans-table__column';
+      const classPlanName = payment ? 'plan-name plan-name--payment' : 'plan-name';
+      const classPlanPricePrice = payment ? 'plan-price__price plan-price__price--payment' : 'plan-price__price';
+      const classPlanPriceSim = payment ? 'plan-price__sim plan-price__sim--payment' : 'plan-sim__price';
+      const classPlanPriceCoin = payment ? 'plan-price__coin plan-price__coin--payment' : 'plan-price__coin';
+      const classPlanDescription = payment ? 'plan-description plan-description--payment' : 'plan-description';
+      const buttonSelectPlan = payment ? <button name='signup' className='button button--gray' type="button" onClick={ this.switchModal }>Seleccionar</button>
+                                       : undefined;
 
-      const plansColumn = <div className='plans-table__column'>
-                            <div className='plan-name'>{ name }</div>
+      const plansColumn = <div className={ classNameColumn }>
+                            <div className={ classPlanName }>{ name }</div>
                             <div className='plan-price'>
-                              <span className='plan-price__sim'>$</span>
-                              <span className='plan-price__price'>{ price }</span>
-                              <span className='plan-price__coin'>USD</span>
+                              <span className={ classPlanPriceSim }>$</span>
+                              <span className={ classPlanPricePrice }>{ price }</span>
+                              <span className={ classPlanPriceCoin }>USD</span>
                             </div>
-                            <div className='plan-description'>
+                            <div className={ classPlanDescription }>
                               <div className='plan-description__element'>
                                 <img className='plan-description__img' src={ `${ location }/img/ok.svg` } alt="ok-img" />
                                 HD disponible
@@ -45,6 +56,7 @@ export default React.createClass({
                                 PPV disponible
                               </div>
                             </div>
+                            { buttonSelectPlan }
                           </div>;
 
       if (!Object.is(index, data.length - 1)) {
@@ -57,9 +69,16 @@ export default React.createClass({
               { plansColumn }
              </div>;
     });
-    return (
-      <div className='plans-table'>
-        { plans }
-      </div>);
+
+    const componentPlans = payment ? <div className='plans-payment'>
+                                       <div className='plans-payment__title'>SELECCIONA UN PLAN</div>
+                                       <div className={ classPlansTable }>
+                                         { plans }
+                                       </div>
+                                     </div>
+                                   : <div className={ classPlansTable }>
+                                       { plans }
+                                     </div>;
+    return componentPlans;
   },
 });
