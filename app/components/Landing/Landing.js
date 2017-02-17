@@ -67,7 +67,7 @@ export default React.createClass({
           <div className='plans-container'>
             <div className='plans-container__headline-2'>{ headline_2 }</div>
             <div className='plans-container__headline-3'>{ headline_3 }</div>
-            <Plans data={ subscription_plans } />
+            <Plans data={ subscription_plans } location={ location }/>
             <button name='signup' className='button' type="button" onClick={ this.openModal }>REGÍSTRATE</button>
           </div>
           <div className='landing-banner'>
