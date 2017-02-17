@@ -5,6 +5,7 @@ import { Provider } from 'react-redux';
 import store from 'state/store';
 import 'sass/landing.scss';
 import 'sass/modal.scss';
+import 'sass/plans.scss';
 
 render(
   <Provider store={ store }>
