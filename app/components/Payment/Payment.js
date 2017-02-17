@@ -12,10 +12,10 @@ export default React.createClass({
   propTypes: {
     api: PropTypes.string.isRequired,
     location: PropTypes.string.isRequired,
+    data: PropTypes.object.isRequired,
   },
   getInitialState() {
     return {
-      data: {},
       currentModal: 'payment',
       showModal: true,
     };
@@ -27,24 +27,13 @@ export default React.createClass({
     this.setState({ currentModal: nextModal });
   },
   closeModal() {
-    this.setState({ showModal: false });
-  },
-  componentWillMount() {
-    const { api } = this.props;
-    request({
-      url: `${ api }/api/pages/index/`,
-    }).then(response => {
-      this.setState({ data: head(response.payload) });
-    }).catch(error => {
-      console.log(error);
-    }
-    );
+    this.setState({ showModal: true });
   },
   render() {
-    const { data, currentModal, showModal } = this.state;
-    const { image1 } = data;
-    const { api, location } = this.props;
-    const actualModal = selectModal({ api, closeModal: this.closeModal, switchModal: this.switchModal, currentModal });
+    const { currentModal, showModal } = this.state;
+    const { api, location, data } = this.props;
+    const { image1, subscription_plans } = data;
+    const actualModal = selectModal({ api, closeModal: this.closeModal, switchModal: this.switchModal, currentModal, subscription_plans, location });
     const classNameLanding = showModal ? 'landing landing--blur' : 'landing';
     const classNameModal = Object.is(currentModal, 'payment') ? 'modal--big' : undefined;
 
