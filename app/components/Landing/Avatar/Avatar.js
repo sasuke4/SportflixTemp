@@ -1,7 +1,8 @@
 import React from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
-import ProfileImage from './ProfileImage.js'
-import { request } from '../../helpers/fetch-server.js';
+import ProfileImage from './ProfileImage';
+import { request } from 'helpers/fetch-server';
+import { setAvatar } from 'state/actions';
 import { head } from 'lodash';
 import { v4 } from 'uuid';
 
@@ -27,17 +28,20 @@ export default React.createClass({
     );
   },
   setImageSelected(selectedImage) {
+    const { dispatch } = this.props;
     this.setState({ selectedImage });
+    dispatch(setAvatar(selectedImage));
   },
-  sendImage() {
+  onSwitch() {
     const { selectedImage } = this.state;
     if (!selectedImage) return;
-    console.log('imagen selecionada');
+
+    const { switchModal } = this.props;
+    switchModal('card');
   },
   render() {
     const { api } = this.props;
     const { images } = this.state;
-    console.log(JSON.stringify(images));
     const imgs = images.map(img => <ProfileImage api={ api } key={ v4() } img={ img } setImageSelected={ this.setImageSelected }/>);
 
     return (
@@ -46,7 +50,7 @@ export default React.createClass({
         <div className='images-container'>
           { imgs }
         </div>
-        <button className='button button--block button--gray' type="button" onClick={ this.sendImage }>Continuar</button>
+        <button className='button button--block button--gray' type="button" onClick={ this.onSwitch }>Continuar</button>
       </div>
     );
   },
