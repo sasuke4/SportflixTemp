@@ -9,16 +9,17 @@ export default React.createClass({
     api: PropTypes.string.isRequired,
     img: PropTypes.object.isRequired,
   },
-  setImageSelected(event) {
-    const { setImageSelected } = this.props;
-    setImageSelected(event.target.dataset.id);
+  setImageSelected() {
+    const { img, setImageSelected } = this.props;
+    setImageSelected(img);
   },
   render() {
     const { api, img } = this.props;
+    const { id, path } = img;
     return (
-      <img data-id={ img.id }
+      <img data-id={ id }
            className='images-container__img'
-           src={ `${ api }${ img.path }` }
+           src={ `${ api }${ path }` }
            alt='profile-image'
            onClick={ this.setImageSelected } />
     );
