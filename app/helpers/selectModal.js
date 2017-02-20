@@ -4,6 +4,7 @@ import Card from 'components/Payment/Card';
 import SignUp from 'components/Landing/SignUp';
 import Recover from 'components/Landing/Recover';
 import SignIn from 'components/Landing/SignIn/SignInContainer';
+import PerfilCreate from 'components/Landing/PerfilCreate/PerfilCreateContainer';
 import Plans from 'components/Plans';
 
 export function selectModal({ api, closeModal, switchModal, currentModal, subscription_plans = [], location } = {}) {
@@ -14,6 +15,7 @@ export function selectModal({ api, closeModal, switchModal, currentModal, subscr
     avatar: <Avatar closeModal={ closeModal } switchModal={ switchModal } />,
     card: <Card api={ api } closeModal={ closeModal } switchModal={ switchModal } />,
     payment: <Plans data={ subscription_plans } location={ location } payment={ true } switchModal={ switchModal } />,
+    'perfil-create': <PerfilCreate />,
   };
 
   return modal[currentModal];

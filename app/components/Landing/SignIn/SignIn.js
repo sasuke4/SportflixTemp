@@ -28,17 +28,17 @@ export default React.createClass({
   },
   render() {
     return (
-      <form className='modal-input' ref='form'>
-        <div className='modal-input__errors'>
+      <form className='modal-block' ref='form'>
+        <div className='modal-block__errors'>
           Tu correo electrónico/contraseña son incorrectos. Intenta de nuevo.
         </div>
-        <input name='email' placeholder='Correo Electrónico' className='modal-input__input'/>
-        <input name='password' type='password' placeholder='Contraseña' className='modal-input__input'/>
-        <div data-name='recover' className='modal-input__forget' onClick={ this.onSwitch }>
+        <input name='email' placeholder='Correo Electrónico' className='modal-block__input'/>
+        <input name='password' type='password' placeholder='Contraseña' className='modal-block__input'/>
+        <div data-name='recover' className='modal-block__forget' onClick={ this.onSwitch }>
           ¿Olvidaste tu contraseña?
         </div>
         <button className='button button--block button--gray' type="button" onClick={ this.onclick } >Iniciar Sesión</button>
-        <div className='modal-input__create'>
+        <div className='modal-block__create'>
           ¿No tienes cuenta? <span data-name='signup' onClick={ this.onSwitch } >Regístrate</span>
         </div>
       </form>

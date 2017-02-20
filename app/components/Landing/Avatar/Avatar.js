@@ -37,7 +37,7 @@ export default React.createClass({
     if (!selectedImage) return;
 
     const { switchModal } = this.props;
-    switchModal('card');
+    switchModal('perfil-create');
   },
   render() {
     const { api } = this.props;
@@ -45,8 +45,8 @@ export default React.createClass({
     const imgs = images.map(img => <ProfileImage api={ api } key={ v4() } img={ img } setImageSelected={ this.setImageSelected }/>);
 
     return (
-      <div className='modal-input--avatar'>
-        <h3 className='modal-input__title'>SELECCIONA TU AVATAR</h3>
+      <div className='modal-block modal-block--avatar'>
+        <h3 className='modal-block__title'>SELECCIONA TU AVATAR</h3>
         <div className='images-container'>
           { imgs }
         </div>

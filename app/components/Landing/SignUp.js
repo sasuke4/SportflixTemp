@@ -23,11 +23,11 @@ export default React.createClass({
   },
   render() {
     return (
-      <form className='modal-input' ref='form'>
-        <input name='email' placeholder='Correo Electrónico' className='modal-input__input'/>
-        <input name='password' type='password' placeholder='Contraseña' className='modal-input__input'/>
-        <input name='password_confirmation' type='password' placeholder='Confirmación de contraseña' className='modal-input__input'/>
-        <span className='modal-input__conditions'>
+      <form className='modal-block' ref='form'>
+        <input name='email' placeholder='Correo Electrónico' className='modal-block__input'/>
+        <input name='password' type='password' placeholder='Contraseña' className='modal-block__input'/>
+        <input name='password_confirmation' type='password' placeholder='Confirmación de contraseña' className='modal-block__input'/>
+        <span className='modal-block__conditions'>
           Al hacer click en registrarte, estás indicando que has leído y estás de acuerdo con los
           Términos de Servicio y Política de Privacidad de SPORTFLIX.
         </span>
