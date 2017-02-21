@@ -34,7 +34,8 @@ export default React.createClass({
   render() {
     const { status, api, location } = this.props;
     const { data } = this.state;
-    const view = Object.is(status, 'Falta de pago') || Object.is(status, 'Falta de perfil')
+
+    const view = Object.is(status, 'Falta de pago') || Object.is(status, 'Falta perfil')
                 ? <Payment api={ api } location={ location } data={ data } status={ status } />
                 : Object.is(status, 'O')
                 ? <Perfil />

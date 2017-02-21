@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
-import { request } from 'helpers/fetch-server'
+import { request } from 'helpers/fetch-server';
 
 export default React.createClass({
   displayName: 'Perfil',
@@ -30,16 +30,18 @@ export default React.createClass({
   render() {
     const { api } = this.props;
     const { profiles } = this.state;
-    const profilesData = profiles.map(({ name, profileImage } = {}) => <div>
-                                                                         <img src={ `${ api }/${ profileImage }` }
-                                                                              alt='profile-image' />
-                                                                         <span>{ name }</span>
-                                                                       </div> )
+    const profilesData = profiles.map(({ name, profileImage } = {}) => <div className='profile-images-block'>
+                                                                         <div className='profile-images-block-block'>
+                                                                           <img src={ `${ api }/media/${ profileImage }` }
+                                                                                alt='profile-image' />
+                                                                           <span>{ name }</span>
+                                                                         </div>
+                                                                       </div>);
     return (
       <div className='perfil'>
-        <div className='profile-images'>
-          { profilesData }
-        </div>
+        <span className='perfil__title'>¿QUIÉN ESTÁ VIENDO AHORA?</span>
+        { profilesData }
+        <span className='perfil__text'>AÑADIR PERFIL</span>
       </div>
     );
   },

@@ -1,7 +1,6 @@
 import React, { PropTypes } from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
 import { request } from 'helpers/fetch-server';
-import { setSesion } from 'state/actions';
 
 export default React.createClass({
   displayName: 'SignIn',
@@ -9,17 +8,21 @@ export default React.createClass({
   propTypes: {
     api: PropTypes.string.isRequired,
   },
+  getInitialState() {
+    return {
+      message: undefined,
+    };
+  },
   onclick() {
-    const { api, closeModal, dispatch } = this.props;
+    const { api } = this.props;
     request({
-      url: `${ api }/api/users/signin/`,
+      url: `${ api }/api/users/reset-password/`,
       method: 'post',
       body: new FormData(this.refs.recover),
     }).then(response => {
-      closeModal();
-      dispatch(setSesion(response.payload.object));
-    }).catch(error =>
-      console.log(error)
+      this.setState({ message: response.payload.massage });
+    }).catch(
+      this.setState({ message: 'Ocurrió algún error' })
     );
   },
   onSwitch(event) {
@@ -27,16 +30,17 @@ export default React.createClass({
     switchModal(event.target.dataset.name);
   },
   render() {
+    const { message } = this.state;
+    const messageText = <span className='error-message'>{ message }</span>;
+
     return (
       <form className='modal-block' ref='recover'>
         <h3 className='modal-block__title'>
           ¿OLVIDASTE TU CONTRASEÑA?
         </h3>
-        <div className='modal-block__errors'>
-          Tu correo electrónico/contraseña son incorrectos. Intenta de nuevo.
-        </div>
-        <input type='email' placeholder='Correo Electrónico' className='modal-block__input'/>
-        <button className='button button--block button--gray' type="button" >Enviar</button>
+        { messageText }
+        <input type='email' name='email' placeholder='Correo Electrónico' className='modal-block__input'/>
+        <button className='button button--block button--gray' type="button" onClick={ this.onclick }>Enviar</button>
         <div className='modal-block__create'>
           Volver a <span data-name='signin' onClick={ this.onSwitch }>Inicia sesión</span>
         </div>

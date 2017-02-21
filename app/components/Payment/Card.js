@@ -1,7 +1,7 @@
 import React from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
 import { request } from 'helpers/fetch-server.js';
-import { setStatus } from 'state/actions'
+import { setStatus } from 'state/actions';
 
 export default React.createClass({
   displayName: 'Card',
@@ -13,18 +13,18 @@ export default React.createClass({
   },
   sendPayment() {
     const { api, token, dispatch } = this.props;
-    dispatch(setStatus('Falta de perfil'))
 
-    // request({
-    //   url: `${ api }/api/users/payments/`,
-    //   method: 'post',
-    //   token,
-    //   body: 'algo',
-    // }).then(response => {
-    //   console.log(response.payload.message);
-    // }).catch(error => {
-    //   console.log(error);
-    // });
+    request({
+      url: `${ api }/api/users/payments/`,
+      method: 'post',
+      token,
+      body: 'algo',
+    }).then(response => {
+      console.log(response.payload.message);
+      dispatch(setStatus('Falta perfil'));
+    }).catch(error => {
+      console.log(error);
+    });
   },
   render() {
     return (
