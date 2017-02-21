@@ -16,10 +16,19 @@ export default React.createClass({
     data: PropTypes.object.isRequired,
   },
   getInitialState() {
+    const { status } = this.props;
+    const currentModal = Object.is(status, 'Falta de pago') ? 'plans' : 'avatar';
     return {
-      currentModal: 'payment',
+      currentModal,
       showModal: true,
+      status,
     };
+  },
+  componentWillReceiveProps(nextProps) {
+    const { status } = nextProps;
+    if (Object.is(status, this.state.status)) return;
+    const currentModal = Object.is(status, 'Falta de pago') ? 'plans' : 'avatar';
+    this.setState({ currentModal });
   },
   openModal(event) {
     this.setState({ showModal: true, currentModal: event.target.name });
@@ -39,7 +48,7 @@ export default React.createClass({
     const { image1, subscription_plans } = data;
     const actualModal = selectModal({ api, closeModal: this.closeModal, switchModal: this.switchModal, currentModal, subscription_plans, location });
     const classNameLanding = showModal ? 'landing landing--blur' : 'landing';
-    const classNameModal = Object.is(currentModal, 'payment') ? 'modal--big' : undefined;
+    const classNameModal = Object.is(currentModal, 'plans') ? 'modal--big' : undefined;
 
     return (
       <div className='payment-container'>

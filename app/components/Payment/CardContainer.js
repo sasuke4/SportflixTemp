@@ -1,4 +1,4 @@
-import Perfil from './Perfil';
+import Card from './Card';
 import { connect } from 'react-redux';
 
 function mapStateToProps(state) {
@@ -8,4 +8,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(Perfil);
+export default connect(mapStateToProps)(Card);

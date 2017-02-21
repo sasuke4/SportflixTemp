@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
 import Select from 'components/Select';
 import { request } from 'helpers/fetch-server';
+import { setStatus } from 'state/actions';
 import { head } from 'lodash';
 
 export default React.createClass({
@@ -36,7 +37,7 @@ export default React.createClass({
     );
   },
   createPersona() {
-    const { api, avatar, closeModal, token } = this.props;
+    const { api, avatar, closeModal, token, dispatch } = this.props;
     const { id } = avatar;
     const formData = new FormData(this.refs.form);
     formData.append('avatar', id);
@@ -48,7 +49,7 @@ export default React.createClass({
       token,
     }).then(response => {
       console.log(response.payload.message);
-      closeModal();
+      dispatch(setStatus('O'));
     }).catch(error =>
       console.log(error)
     );
@@ -57,8 +58,6 @@ export default React.createClass({
     const { api, avatar } = this.props;
     const { languages } = this.state;
     const { path } = avatar;
-
-    console.log(JSON.stringify(languages));
 
     return (
       <form className='modal-block' ref='form'>

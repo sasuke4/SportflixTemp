@@ -23,8 +23,8 @@ export default React.createClass({
     return (
       <div className='modal-block'>
         <h3 className='modal-block__title'>¿Seguro que quieres terminar tu sesión?</h3>
-        <button name='avatar' className='button button--block button--gray' type="button" onClick={ this.closeModal } >Continuar</button>
-        <button name='payment' className='button button--block button--gray no-margin-top' type="button" onClick={ this.onSwitch } >Regresar</button>
+        <button className='button button--block button--gray' type="button" onClick={ this.closeModal } >Continuar</button>
+        <button className='button button--block button--gray no-margin-top' type="button" onClick={ this.onSwitch } >Regresar</button>
       </div>
     );
   },
