@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
 import { request } from 'helpers/fetch-server.js';
+import { v4 } from 'uuid';
 
 export default React.createClass({
   displayName: 'SignUp',
@@ -28,7 +29,7 @@ export default React.createClass({
   },
   render() {
     const { errorMessage } = this.state;
-    const errorSpan = errorMessage.map(message => <span className='error-message'>{ message }</span>);
+    const errorSpan = errorMessage.map(message => <span key={ v4() } className='error-message'>{ message }</span>);
 
     return (
       <form className='modal-block' ref='form'>

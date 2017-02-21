@@ -66,10 +66,10 @@ $gray: #C2C2C2;
   }
 
   &__forget {
-    text-align: right;
     color: $white;
-    font-size: 12px;
     cursor: pointer;
+    float: right;
+    font-size: 12px;
   }
 
   &__create {
@@ -80,16 +80,8 @@ $gray: #C2C2C2;
 
   &__create span {
     color: $white;
-    font-weight: bolder;
     cursor: pointer;
-  }
-
-  &__errors {
-    text-align: left;
-    color: $white;
-    font-size: 13px;
     font-weight: bolder;
-    margin-bottom: 15px;
   }
 
   &__title {

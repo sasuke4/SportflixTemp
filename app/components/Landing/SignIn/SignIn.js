@@ -2,12 +2,18 @@ import React, { PropTypes } from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
 import { request } from 'helpers/fetch-server';
 import { setSesion } from 'state/actions';
+import { v4 } from 'uuid';
 
 export default React.createClass({
   displayName: 'SignIn',
   mixins: [ PureRenderMixin ],
   propTypes: {
     api: PropTypes.string.isRequired,
+  },
+  getInitialState() {
+    return {
+      errorMessage: [],
+    };
   },
   onclick() {
     const { api, closeModal, dispatch } = this.props;
@@ -18,8 +24,9 @@ export default React.createClass({
     }).then(response => {
       closeModal();
       dispatch(setSesion(response.payload.object));
-    }).catch(error =>
-      console.log(error)
+    }).catch(error => {
+      this.setState({ errorMessage: error.message });
+    }
     );
   },
   onSwitch(event) {
@@ -27,11 +34,12 @@ export default React.createClass({
     switchModal(event.target.dataset.name);
   },
   render() {
+    const { errorMessage } = this.state;
+    const errorSpan = errorMessage.map(message => <span key={ v4() } className='error-message'>{ message }</span>);
+
     return (
       <form className='modal-block' ref='form'>
-        <div className='modal-block__errors'>
-          Tu correo electrónico/contraseña son incorrectos. Intenta de nuevo.
-        </div>
+        { errorSpan }
         <input name='email' placeholder='Correo Electrónico' className='modal-block__input'/>
         <input name='password' type='password' placeholder='Contraseña' className='modal-block__input'/>
         <div data-name='recover' className='modal-block__forget' onClick={ this.onSwitch }>
