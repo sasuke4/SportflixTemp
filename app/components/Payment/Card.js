@@ -11,7 +11,7 @@ export default React.createClass({
   },
   render() {
     return (
-      <div className='modal-bock modal-block--avatar'>
+      <div className='modal-block modal-block--avatar'>
         <h3 className='modal-block__title'>ELIGE EL MÉTODO DE PAGO</h3>
         <input placeholder='Nombre' className='modal-block__input'/>
         <input placeholder='Apellido' className='modal-block__input'/>

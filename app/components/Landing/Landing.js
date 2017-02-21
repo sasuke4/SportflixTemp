@@ -27,6 +27,7 @@ export default React.createClass({
     this.setState({ currentModal: nextModal });
   },
   closeModal() {
+    console.log('me quito');
     this.setState({ showModal: false });
   },
   render() {

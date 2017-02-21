@@ -27,7 +27,7 @@ export default React.createClass({
     this.setState({ currentModal: nextModal });
   },
   closeModal() {
-    this.setState({ showModal: true });
+    this.setState({ showModal: false });
   },
   render() {
     const { currentModal, showModal } = this.state;

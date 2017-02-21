@@ -5,6 +5,7 @@ function mapStateToProps(state) {
   return {
     api: state.api,
     avatar: state.avatar,
+    token: state.token,
   };
 }
 

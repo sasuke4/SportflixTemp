@@ -1,0 +1,13 @@
+.user-avatar-container {
+  padding-top: 80px;
+
+  &__input {
+    float: left;
+  }
+
+  &__select {
+    float: left;
+    height: 40px;
+    width: 100%;
+  }
+}
