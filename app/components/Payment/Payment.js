@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
 import Plans from 'components/Plans.js';
 import Modal from 'components/Modal.js';
+import { setPreviousModal } from 'state/actions';
 import { request } from 'helpers/fetch-server.js';
 import { selectModal } from 'helpers/selectModal';
 import { head } from 'lodash';
@@ -27,7 +28,10 @@ export default React.createClass({
     this.setState({ currentModal: nextModal });
   },
   closeModal() {
-    this.setState({ showModal: false });
+    const { dispatch } = this.props;
+    const { currentModal } = this.state;
+    dispatch(setPreviousModal(currentModal));
+    this.switchModal('signout');
   },
   render() {
     const { currentModal, showModal } = this.state;

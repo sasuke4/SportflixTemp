@@ -11,3 +11,17 @@ export function setAvatar(avatar) {
     payload: avatar,
   };
 }
+
+export function setStatus(status) {
+  return {
+    type: 'SET_STATUS',
+    payload: status,
+  };
+}
+
+export function setPreviousModal(previousModal) {
+  return {
+    type: 'SET_PREVIOUS_MODAL',
+    payload: previousModal,
+  };
+}

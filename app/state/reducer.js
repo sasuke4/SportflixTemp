@@ -5,6 +5,7 @@ const initialState = {
   api: 'http://localhost:8000',
   location: window.location.origin,
   avatar: '',
+  previousModal: '',
 };
 
 function reducer(state = initialState, action = {}) {
@@ -16,6 +17,14 @@ function reducer(state = initialState, action = {}) {
   case 'SET_AVATAR': {
     const avatar = action.payload;
     return Object.assign({}, state, { avatar });
+  }
+  case 'SET_STATUS': {
+    const status = action.payload;
+    return Object.assign({}, state, { status });
+  }
+  case 'SET_PREVIOUS_MODAL': {
+    const previousModal = action.payload;
+    return Object.assign({}, state, { previousModal });
   }
   default:
     return state;

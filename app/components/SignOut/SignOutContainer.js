@@ -5,6 +5,7 @@ function mapStateToProps(state) {
   return {
     token: state.token,
     api: state.api,
+    previousModal: state.previousModal,
   };
 }
 

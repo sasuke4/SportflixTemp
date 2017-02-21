@@ -4,7 +4,7 @@ import Card from 'components/Payment/Card';
 import SignUp from 'components/Landing/SignUp';
 import Recover from 'components/Landing/Recover';
 import SignIn from 'components/Landing/SignIn/SignInContainer';
-import SignIn from 'components/SignOut/SignOutContainer';
+import SignOut from 'components/SignOut/SignOutContainer';
 import PerfilCreate from 'components/Landing/PerfilCreate/PerfilCreateContainer';
 import Plans from 'components/Plans';
 
@@ -12,7 +12,7 @@ export function selectModal({ api, closeModal, switchModal, currentModal, subscr
   const modal = {
     signup: <SignUp api={ api } closeModal={ closeModal } switchModal={ switchModal } />,
     signin: <SignIn api={ api } closeModal={ closeModal } switchModal={ switchModal } />,
-    signout: <SignOut closeModal={ closeModal } />,
+    signout: <SignOut closeModal={ closeModal } switchModal={ switchModal } />,
     recover: <Recover api={ api } closeModal={ closeModal } switchModal={ switchModal } />,
     avatar: <Avatar closeModal={ closeModal } switchModal={ switchModal } />,
     card: <Card api={ api } closeModal={ closeModal } switchModal={ switchModal } />,

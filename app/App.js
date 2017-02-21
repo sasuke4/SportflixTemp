@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
 import Landing from 'components/Landing/Landing';
-import Payment from 'components/Payment/Payment';
+import Payment from 'components/Payment/PaymentContainer';
 import Perfil from 'components/Perfil/Perfil';
 import { request } from 'helpers/fetch-server';
 import { head } from 'lodash';
