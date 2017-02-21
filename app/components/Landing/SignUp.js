@@ -8,22 +8,31 @@ export default React.createClass({
   propTypes: {
     api: PropTypes.string.isRequired,
   },
+  getInitialState() {
+    return {
+      errorMessage: [],
+    };
+  },
   onclick() {
-    const { api, closeModal } = this.props;
+    const { api, switchModal } = this.props;
     request({
       url: `${ api }/api/users/`,
       method: 'post',
       body: new FormData(this.refs.form),
     }).then(response => {
       console.log(response.payload.message);
-      closeModal();
-    }).catch(error =>
-      console.log(error)
-    );
+      switchModal('signin');
+    }).catch(error => {
+      this.setState({ errorMessage: error.message });
+    });
   },
   render() {
+    const { errorMessage } = this.state;
+    const errorSpan = errorMessage.map(message => <span className='error-message'>{ message }</span>);
+
     return (
       <form className='modal-block' ref='form'>
+        { errorSpan }
         <input name='email' placeholder='Correo Electrónico' className='modal-block__input'/>
         <input name='password' type='password' placeholder='Contraseña' className='modal-block__input'/>
         <input name='password_confirmation' type='password' placeholder='Confirmación de contraseña' className='modal-block__input'/>

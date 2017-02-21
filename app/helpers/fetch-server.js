@@ -1,5 +1,6 @@
+import { isString } from 'lodash';
+
 function requestError(error) {
-  console.log(error);
   const status = { status: 'error' };
   if (!(error instanceof Response)) return Promise.reject({ ...status, message: error.message });
 

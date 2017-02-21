@@ -9,7 +9,7 @@ import Plans from 'components/Plans';
 
 export function selectModal({ api, closeModal, switchModal, currentModal, subscription_plans = [], location } = {}) {
   const modal = {
-    signup: <SignUp api={ api } closeModal={ closeModal } />,
+    signup: <SignUp api={ api } closeModal={ closeModal } switchModal={ switchModal } />,
     signin: <SignIn api={ api } closeModal={ closeModal } switchModal={ switchModal } />,
     recover: <Recover api={ api } closeModal={ closeModal } switchModal={ switchModal } />,
     avatar: <Avatar closeModal={ closeModal } switchModal={ switchModal } />,
