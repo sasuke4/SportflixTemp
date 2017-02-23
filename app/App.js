@@ -41,10 +41,6 @@ export default React.createClass({
                 ? <Perfil />
                 : <Landing api={ api } location={ location } data={ data } />;
 
-    return (
-      <div>
-        { view }
-      </div>
-    );
+    return view;
   },
 });
