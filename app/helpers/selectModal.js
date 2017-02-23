@@ -1,6 +1,6 @@
 import React from 'react';
 import Avatar from 'components/Landing/Avatar/AvatarContainer';
-import Card from 'components/Payment/CardContainer';
+import Card from 'components/CompleteProfile/CardContainer';
 import SignUp from 'components/Landing/SignUp';
 import Recover from 'components/Landing/Recover';
 import SignIn from 'components/Landing/SignIn/SignInContainer';

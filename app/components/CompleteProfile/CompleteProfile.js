@@ -9,7 +9,7 @@ import { selectModal } from 'helpers/selectModal';
 import { head } from 'lodash';
 
 export default React.createClass({
-  displayName: 'Payment',
+  displayName: 'CompleteProfile',
   mixins: [ PureRenderMixin ],
   propTypes: {
     api: PropTypes.string.isRequired,
@@ -52,7 +52,7 @@ export default React.createClass({
     const classNameModal = Object.is(currentModal, 'plans') ? 'modal--big' : undefined;
 
     return (
-      <div className='payment-container'>
+      <div className='complete-profile-container'>
         <Modal closeModal={ this.closeModal } show={ showModal } location={ location } classNameModal={ classNameModal }>
           { actualModal }
         </Modal>
