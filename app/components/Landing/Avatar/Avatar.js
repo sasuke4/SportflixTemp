@@ -12,7 +12,7 @@ export default React.createClass({
   getInitialState() {
     return {
       images: [],
-      selectedImage: undefined,
+      selectedImage: {},
     };
   },
   componentWillMount() {
@@ -41,8 +41,14 @@ export default React.createClass({
   },
   render() {
     const { api } = this.props;
+    const { selectedImage } = this.state;
+    const { id } = selectedImage;
     const { images } = this.state;
-    const imgs = images.map(img => <ProfileImage api={ api } key={ v4() } img={ img } setImageSelected={ this.setImageSelected }/>);
+    const imgs = images.map(img => <ProfileImage api={ api }
+                                                 key={ v4() }
+                                                 img={ img }
+                                                 setImageSelected={ this.setImageSelected }
+                                                 selectedImage={ id } />);
 
     return (
       <div className='modal-block modal-block--avatar'>

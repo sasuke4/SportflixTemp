@@ -6,6 +6,7 @@ export default React.createClass({
   mixins: [ PureRenderMixin ],
   propTypes: {
     setImageSelected: PropTypes.func.isRequired,
+    selectedImage: PropTypes.number,
     api: PropTypes.string.isRequired,
     img: PropTypes.object.isRequired,
   },
@@ -14,11 +15,13 @@ export default React.createClass({
     setImageSelected(img);
   },
   render() {
-    const { api, img } = this.props;
+    const { api, img, selectedImage } = this.props;
     const { id, path } = img;
+    const classImage = Object.is(selectedImage, id) ? 'images-container__img--on' : '';
+
     return (
       <img data-id={ id }
-           className='images-container__img'
+           className={ `images-container__img ${ classImage }`.trim() }
            src={ `${ api }${ path }` }
            alt='profile-image'
            onClick={ this.setImageSelected } />
