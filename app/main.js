@@ -8,6 +8,7 @@ import 'sass/modal.scss';
 import 'sass/plans.scss';
 import 'sass/avatar.scss';
 import 'sass/perfilCreate.scss';
+import 'sass/profile.scss';
 
 render(
   <Provider store={ store }>

@@ -1,0 +1,39 @@
+$white: #FFF;
+
+.profile-images-block {
+  color: $white;
+  display: flex;
+  height: 150px;
+  justify-content: center;
+
+  &-block {
+    cursor: pointer;
+    height: 120px;
+    margin-top: 30px;
+    width: 100px;
+
+    &__img {
+      cursor: pointer;
+      height: 70px;
+      opacity: .3;
+      width: 70px;
+    }
+  }
+}
+
+.perfil {
+  color: $white;
+  padding-top: 280px;
+  text-align: center;
+
+  &__title {
+    font-size: 25px;
+    margin-bottom: 30px;
+  }
+
+  &__text {
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: 30px;
+  }
+}

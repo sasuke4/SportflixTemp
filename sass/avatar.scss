@@ -16,32 +16,3 @@ $white: #FFF;
     }
   }
 }
-
-.profile-images-block {
-  color: $white;
-  text-align: center;
-
-  &-block {
-    cursor: pointer;
-    height: 80px;
-    margin: 40px auto;
-    width: 100px;
-  }
-}
-
-.perfil {
-  color: $white;
-  padding-top: 280px;
-  text-align: center;
-
-  &__title {
-    font-size: 25px;
-    margin-bottom: 30px;
-  }
-
-  &__text {
-    cursor: pointer;
-    font-size: 14px;
-    margin-top: 30px;
-  }
-}

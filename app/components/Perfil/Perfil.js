@@ -30,17 +30,18 @@ export default React.createClass({
   render() {
     const { api } = this.props;
     const { profiles } = this.state;
-    const profilesData = profiles.map(({ name, profileImage } = {}) => <div className='profile-images-block'>
-                                                                         <div className='profile-images-block-block'>
-                                                                           <img src={ `${ api }/media/${ profileImage }` }
+    const profilesData = profiles.map(({ name, profileImage } = {}) =>  <div className='profile-images-block-block'>
+                                                                           <img className='profile-images-block-block__img'
+                                                                                src={ `${ api }/media/${ profileImage }` }
                                                                                 alt='profile-image' />
                                                                            <span>{ name }</span>
-                                                                         </div>
-                                                                       </div>);
+                                                                         </div>);
     return (
       <div className='perfil'>
         <span className='perfil__title'>¿QUIÉN ESTÁ VIENDO AHORA?</span>
-        { profilesData }
+          <div className='profile-images-block'>
+            { profilesData }
+          </div>
         <span className='perfil__text'>AÑADIR PERFIL</span>
       </div>
     );
