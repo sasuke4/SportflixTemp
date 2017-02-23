@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
+import HeaderWrapper from 'components/HeaderWrapper';
 import Plans from 'components/Plans';
 import Modal from 'components/Modal';
 import { request } from 'helpers/fetch-server';
@@ -40,11 +41,8 @@ export default React.createClass({
         <Modal closeModal={ this.closeModal } show={ showModal } location={ location } >
           { actualModal }
         </Modal>
-        <div className={ classNameLanding }>
-          <div className='landing-top'>
-            <div className='landing-top__logo'>SPORTFLIX</div>
-            <button name='signin' className='landing-top__sign-in' onClick={ this.openModal }>INICIAR SESIÓN</button>
-          </div>
+        <HeaderWrapper classNameLanding={ classNameLanding }
+                       openModal={ this.openModal } >
           <div className='landing-header'>
             <img className='landing-header__img' src={ `${ api }${ image1 }` } alt="header-img" />
             <div className='landing-header__header'>{ header }</div>
@@ -67,7 +65,8 @@ export default React.createClass({
             <img className='landing-banner__img landing-banner__img--big' src={ `${ api }${ image3 }` } alt="header-img" />
             <div className='landing-banner__text landing-banner__text--big'>DONDE QUIERAS SIN ANUNCIOS EN LA MAS ALTA CALIDAD</div>
           </div>
-        </div>
-      </div>);
+        </HeaderWrapper>
+      </div>
+    );
   },
 });
