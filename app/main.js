@@ -7,7 +7,7 @@ import 'sass/landing.scss';
 import 'sass/modal.scss';
 import 'sass/plans.scss';
 import 'sass/avatar.scss';
-import 'sass/perfilCreate.scss';
+import 'sass/profileCreate.scss';
 import 'sass/profile.scss';
 
 render(

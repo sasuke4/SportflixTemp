@@ -5,7 +5,7 @@ import SignUp from 'components/Landing/SignUp';
 import Recover from 'components/Landing/Recover';
 import SignIn from 'components/Landing/SignIn/SignInContainer';
 import SignOut from 'components/SignOut/SignOutContainer';
-import PerfilCreate from 'components/Landing/PerfilCreate/PerfilCreateContainer';
+import ProfileCreate from 'components/Landing/ProfileCreate/ProfileCreateContainer';
 import Plans from 'components/Plans';
 
 export function selectModal({ api, closeModal, switchModal, currentModal, subscription_plans = [], location, updateProfiles } = {}) {
@@ -17,7 +17,7 @@ export function selectModal({ api, closeModal, switchModal, currentModal, subscr
     avatar: <Avatar closeModal={ closeModal } switchModal={ switchModal } />,
     card: <Card api={ api } closeModal={ closeModal } switchModal={ switchModal } />,
     plans: <Plans data={ subscription_plans } location={ location } payment={ true } switchModal={ switchModal } />,
-  'perfil-create': <PerfilCreate switchModal={ switchModal } closeModal={ closeModal } updateProfiles={ updateProfiles } />,
+    'profile-create': <ProfileCreate switchModal={ switchModal } closeModal={ closeModal } updateProfiles={ updateProfiles } />,
   };
 
   return modal[currentModal];

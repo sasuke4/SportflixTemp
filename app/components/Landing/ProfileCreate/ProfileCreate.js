@@ -6,7 +6,7 @@ import { setStatus } from 'state/actions';
 import { head } from 'lodash';
 
 export default React.createClass({
-  displayName: 'PerfilCreate',
+  displayName: 'ProfileCreate',
   mixins: [ PureRenderMixin ],
   propTypes: {
     api: PropTypes.string.isRequired,

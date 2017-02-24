@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
 import Landing from 'components/Landing/Landing';
 import CompleteProfile from 'components/CompleteProfile/CompleteProfileContainer';
-import Perfil from 'components/Perfil/PerfilContainer';
+import Profile from 'components/Profile/ProfileContainer';
 import { request } from 'helpers/fetch-server';
 import { head } from 'lodash';
 
@@ -38,7 +38,7 @@ export default React.createClass({
     const view = Object.is(status, 'Falta de pago') || Object.is(status, 'Falta perfil')
                 ? <CompleteProfile api={ api } location={ location } data={ data } status={ status } />
                 : Object.is(status, 'O')
-                ? <Perfil location={ location } />
+                ? <Profile location={ location } />
                 : <Landing api={ api } location={ location } data={ data } />;
 
     return view;

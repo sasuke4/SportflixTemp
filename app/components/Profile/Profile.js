@@ -7,7 +7,7 @@ import { selectModal } from 'helpers/selectModal';
 import { v4 } from 'uuid';
 
 export default React.createClass({
-  displayName: 'Perfil',
+  displayName: 'Profile',
   mixins: [ PureRenderMixin ],
   propTypes: {
     token: PropTypes.string.isRequired,
@@ -62,12 +62,12 @@ export default React.createClass({
         <Modal closeModal={ this.openCloseModal } show={ showModal } location={ location } >
           { actualModal }
         </Modal>
-        <div className='perfil'>
-          <span className='perfil__title'>¿QUIÉN ESTÁ VIENDO AHORA?</span>
+        <div className='profile'>
+          <span className='profile__title'>¿QUIÉN ESTÁ VIENDO AHORA?</span>
             <div className='profile-images-block'>
               { profilesData }
             </div>
-          <span className='perfil__text' onClick={ this.openCloseModal }>AÑADIR PERFIL</span>
+          <span className='profile__text' onClick={ this.openCloseModal }>AÑADIR PERFIL</span>
         </div>
       </div>
     );

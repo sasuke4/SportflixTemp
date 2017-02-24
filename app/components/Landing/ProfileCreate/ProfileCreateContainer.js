@@ -1,4 +1,4 @@
-import PerfilCreate from './PerfilCreate';
+import ProfileCreate from './ProfileCreate';
 import { connect } from 'react-redux';
 
 function mapStateToProps(state) {
@@ -9,4 +9,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(PerfilCreate);
+export default connect(mapStateToProps)(ProfileCreate);

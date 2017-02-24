@@ -37,7 +37,7 @@ export default React.createClass({
     if (!selectedImage) return;
 
     const { switchModal } = this.props;
-    switchModal('perfil-create');
+    switchModal('profile-create');
   },
   render() {
     const { api } = this.props;
