@@ -25,7 +25,7 @@ export default React.createClass({
       closeModal();
       dispatch(setSesion(response.payload.object));
     }).catch(error => {
-      this.setState({ errorMessage: error.message });
+      //this.setState({ errorMessage: error.message });
     }
     );
   },

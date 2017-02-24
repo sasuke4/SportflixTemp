@@ -38,7 +38,7 @@ export default React.createClass({
     const view = Object.is(status, 'Falta de pago') || Object.is(status, 'Falta perfil')
                 ? <CompleteProfile api={ api } location={ location } data={ data } status={ status } />
                 : Object.is(status, 'O')
-                ? <Perfil />
+                ? <Perfil location={ location } />
                 : <Landing api={ api } location={ location } data={ data } />;
 
     return view;

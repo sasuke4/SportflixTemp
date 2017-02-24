@@ -14,6 +14,7 @@ export default React.createClass({
     switchModal: PropTypes.func.isRequired,
     token: PropTypes.string.isRequired,
     closeModal: PropTypes.func.isRequired,
+    updateProfiles: PropTypes.func,
   },
   getInitialState() {
     return {
@@ -37,7 +38,7 @@ export default React.createClass({
     );
   },
   createPersona() {
-    const { api, avatar, closeModal, token, dispatch } = this.props;
+    const { api, avatar, closeModal, token, dispatch, updateProfiles } = this.props;
     const { id } = avatar;
     const formData = new FormData(this.refs.form);
     formData.append('avatar', id);
@@ -49,7 +50,13 @@ export default React.createClass({
       token,
     }).then(response => {
       console.log(response.payload.message);
-      dispatch(setStatus('O'));
+      if (updateProfiles) {
+        console.log('joshua');
+         updateProfiles();
+         closeModal();
+      } else {
+        dispatch(setStatus('O'));
+      };
     }).catch(error =>
       console.log(error)
     );
