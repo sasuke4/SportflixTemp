@@ -1,11 +1,11 @@
 import React from 'react';
-import Avatar from 'components/Landing/Avatar/AvatarContainer';
+import Avatar from 'components/Profile/Avatar/AvatarContainer';
 import Card from 'components/CompleteProfile/CardContainer';
 import SignUp from 'components/Landing/SignUp';
 import Recover from 'components/Landing/Recover';
 import SignIn from 'components/Landing/SignIn/SignInContainer';
 import SignOut from 'components/SignOut/SignOutContainer';
-import ProfileCreate from 'components/Landing/ProfileCreate/ProfileCreateContainer';
+import ProfileCreate from 'components/Profile/ProfileCreateContainer';
 import Plans from 'components/Plans';
 
 export function selectModal({ api, closeModal, switchModal, currentModal, subscription_plans = [], location, updateProfiles } = {}) {
