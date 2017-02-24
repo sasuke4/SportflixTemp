@@ -5,6 +5,7 @@ function mapStateToProps(state) {
   return {
     api: state.api,
     token: state.token,
+    location: state.location,
   };
 }
 

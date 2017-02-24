@@ -1,13 +1,12 @@
-import CompleteProfile from './CompleteProfile';
+import Landing from './Landing';
 import { connect } from 'react-redux';
 
 function mapStateToProps(state) {
   return {
     api: state.api,
     token: state.token,
-    status: state.status,
     location: state.location,
   };
 }
 
-export default connect(mapStateToProps)(CompleteProfile);
+export default connect(mapStateToProps)(Landing);

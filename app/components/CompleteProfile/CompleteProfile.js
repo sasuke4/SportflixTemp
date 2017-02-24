@@ -7,6 +7,7 @@ import { setPreviousModal } from 'state/actions';
 import { request } from 'helpers/fetch-server.js';
 import { selectModal } from 'helpers/selectModal';
 import { head } from 'lodash';
+import { setStatus } from 'state/actions';
 
 export default React.createClass({
   displayName: 'CompleteProfile',
@@ -43,11 +44,25 @@ export default React.createClass({
     dispatch(setPreviousModal(currentModal));
     this.switchModal('signout');
   },
+  updateStatus() {
+    const { api, token, dispatch } = this.props;
+
+    request({
+      url: `${ api }/api/account-info/`,
+      token,
+    }).then(response => {
+      const { status } = response.payload;
+      dispatch(setStatus(status));
+    }).catch(error => {
+      console.log(error);
+    }
+    );
+  },
   render() {
     const { currentModal, showModal } = this.state;
     const { api, location, data } = this.props;
     const { image1, subscription_plans } = data;
-    const actualModal = selectModal({ api, closeModal: this.closeModal, switchModal: this.switchModal, currentModal, subscription_plans, location });
+    const actualModal = selectModal({ api, closeModal: this.closeModal, switchModal: this.switchModal, currentModal, subscription_plans, location, updateStatus: this.updateStatus });
     const classNameLanding = showModal ? 'landing landing--blur' : 'landing';
     const classNameModal = Object.is(currentModal, 'plans') ? 'modal--big' : undefined;
 

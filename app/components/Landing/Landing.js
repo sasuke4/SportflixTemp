@@ -6,6 +6,7 @@ import Modal from 'components/Modal';
 import { request } from 'helpers/fetch-server';
 import { selectModal } from 'helpers/selectModal';
 import { head } from 'lodash';
+import { setStatus } from 'state/actions';
 
 export default React.createClass({
   displayName: 'Landing',
@@ -30,11 +31,25 @@ export default React.createClass({
   closeModal() {
     this.setState({ showModal: false });
   },
+  updateStatus() {
+    const { api, token, dispatch } = this.props;
+
+    request({
+      url: `${ api }/api/account-info/`,
+      token,
+    }).then(response => {
+      const { status } = response.payload;
+      dispatch(setStatus(status));
+    }).catch(error => {
+      console.log(error);
+    }
+    );
+  },
   render() {
     const { currentModal, showModal } = this.state;
     const { api, location, data } = this.props;
     const { header, headline_1, headline_2, headline_3, image1, image2, image3, subscription_plans = [] } = data;
-    const actualModal = selectModal({ api, closeModal: this.closeModal, switchModal: this.switchModal, currentModal });
+    const actualModal = selectModal({ api, closeModal: this.closeModal, switchModal: this.switchModal, currentModal, updateStatus: this.updateStatus });
     const classNameLanding = showModal ? 'landing landing--blur' : 'landing';
     return (
       <div className='landing-container'>

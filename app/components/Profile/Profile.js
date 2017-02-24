@@ -5,6 +5,7 @@ import Modal from 'components/Modal';
 import { request } from 'helpers/fetch-server';
 import { selectModal } from 'helpers/selectModal';
 import { v4 } from 'uuid';
+import { setStatus } from 'state/actions';
 
 export default React.createClass({
   displayName: 'Profile',
@@ -23,16 +24,18 @@ export default React.createClass({
     };
   },
   componentWillMount() {
-    this.updateProfiles();
+    this.updateStatus();
   },
-  updateProfiles() {
-    const { api, token } = this.props;
+  updateStatus() {
+    const { api, token, dispatch } = this.props;
 
     request({
       url: `${ api }/api/account-info/`,
       token,
     }).then(response => {
-      this.setState({ profiles: response.payload.profiles });
+      const { profiles, status } = response.payload;
+      this.setState({ profiles });
+      dispatch(setStatus(status));
     }).catch(error => {
       console.log(error);
     }
@@ -49,7 +52,7 @@ export default React.createClass({
     const { api, location } = this.props;
     const { showModal, currentModal, profiles, selectedProfile } = this.state;
     const classNameLanding = selectedProfile ? 'landing landing--blur' : 'landing';
-    const actualModal = selectModal({ api, closeModal: this.openCloseModal, switchModal: this.switchModal, currentModal, updateProfiles: this.updateProfiles });
+    const actualModal = selectModal({ api, closeModal: this.openCloseModal, switchModal: this.switchModal, currentModal, updateStatus: this.updateStatus });
     const profilesData = profiles.map(({ name, profileImage } = {}) => <div key={ v4() } className='profile-images-block-block'>
                                                                           <img className='profile-images-block-block__img'
                                                                               src={ `${ api }/media/${ profileImage }` }

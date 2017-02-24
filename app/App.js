@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
-import Landing from 'components/Landing/Landing';
+import Landing from 'components/Landing/LandingContainer';
 import CompleteProfile from 'components/CompleteProfile/CompleteProfileContainer';
 import Profile from 'components/Profile/ProfileContainer';
 import { request } from 'helpers/fetch-server';
@@ -32,14 +32,14 @@ export default React.createClass({
     );
   },
   render() {
-    const { status, api, location } = this.props;
+    const { status } = this.props;
     const { data } = this.state;
 
     const view = Object.is(status, 'Falta de pago') || Object.is(status, 'Falta perfil')
-                ? <CompleteProfile api={ api } location={ location } data={ data } status={ status } />
+                ? <CompleteProfile data={ data } />
                 : Object.is(status, 'O')
-                ? <Profile location={ location } />
-                : <Landing api={ api } location={ location } data={ data } />;
+                ? <Profile />
+                : <Landing data={ data } />;
 
     return view;
   },
