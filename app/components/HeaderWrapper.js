@@ -10,7 +10,7 @@ export default React.createClass({
     children: PropTypes.oneOfType([
       PropTypes.array,
       PropTypes.object,
-    ]).isRequired,
+    ]),
   },
   render() {
     const { classNameLanding, openModal, children } = this.props;

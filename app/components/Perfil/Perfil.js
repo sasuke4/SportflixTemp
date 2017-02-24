@@ -4,6 +4,7 @@ import HeaderWrapper from 'components/HeaderWrapper';
 import Modal from 'components/Modal';
 import { request } from 'helpers/fetch-server';
 import { selectModal } from 'helpers/selectModal';
+import { v4 } from 'uuid';
 
 export default React.createClass({
   displayName: 'Perfil',
@@ -37,7 +38,7 @@ export default React.createClass({
     }
     );
   },
-  openCloseModal(event) {
+  openCloseModal() {
     const { showModal } = this.state;
     this.setState({ showModal: !showModal });
   },
@@ -49,12 +50,12 @@ export default React.createClass({
     const { showModal, currentModal, profiles, selectedProfile } = this.state;
     const classNameLanding = selectedProfile ? 'landing landing--blur' : 'landing';
     const actualModal = selectModal({ api, closeModal: this.openCloseModal, switchModal: this.switchModal, currentModal, updateProfiles: this.updateProfiles });
-    const profilesData = profiles.map(({ name, profileImage } = {}) =>  <div className='profile-images-block-block'>
-                                                                           <img className='profile-images-block-block__img'
-                                                                                src={ `${ api }/media/${ profileImage }` }
-                                                                                alt='profile-image' />
-                                                                           <span>{ name }</span>
-                                                                         </div>);
+    const profilesData = profiles.map(({ name, profileImage } = {}) => <div key={ v4() } className='profile-images-block-block'>
+                                                                          <img className='profile-images-block-block__img'
+                                                                              src={ `${ api }/media/${ profileImage }` }
+                                                                              alt='profile-image' />
+                                                                          <span>{ name }</span>
+                                                                       </div>);
     return (
       <div>
         <HeaderWrapper classNameLanding={ classNameLanding } />
