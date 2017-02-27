@@ -2,10 +2,12 @@ import Profile from './Profile';
 import { connect } from 'react-redux';
 
 function mapStateToProps(state) {
+  const { api, token, location, accountInfo } = state;
   return {
-    api: state.api,
-    token: state.token,
-    location: state.location,
+    api,
+    token,
+    location,
+    accountInfo,
   };
 }
 

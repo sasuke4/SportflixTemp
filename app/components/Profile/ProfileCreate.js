@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
 import Select from 'components/Select';
 import { request } from 'helpers/fetch-server';
-import { setStatus } from 'state/actions';
+import { setStatus, setProfileCreate } from 'state/actions';
 import { head } from 'lodash';
 
 export default React.createClass({
@@ -22,7 +22,9 @@ export default React.createClass({
     };
   },
   goToAvatar() {
-    const { switchModal } = this.props;
+    const { switchModal, dispatch } = this.props;
+    const name = this.refs.form.querySelector('input[name="name"]').value;
+    dispatch(setProfileCreate({ name }));
     switchModal('avatar');
   },
   componentWillMount() {
@@ -51,15 +53,17 @@ export default React.createClass({
     }).then(response => {
       console.log(response.payload.message);
       closeModal();
+      dispatch(setProfileCreate({ name: '' }));
       updateStatus();
     }).catch(error =>
       console.log(error)
     );
   },
   render() {
-    const { api, avatar } = this.props;
+    const { api, avatar, profileCreate } = this.props;
     const { languages } = this.state;
     const { path } = avatar;
+    const { name } = profileCreate;
 
     return (
       <form className='modal-block' ref='form'>
@@ -68,7 +72,7 @@ export default React.createClass({
         </h3>
         <img className='images-container__img' src={ `${ api }${ path }` } alt='profile-image' onClick={ this.goToAvatar } />
         <div className='user-avatar-container'>
-          <input className='user-avatar-container__input' name='name' placeholder='Nombre' className='modal-block__input'/>
+          <input className='user-avatar-container__input' name='name' defaultValue={ name } placeholder='Nombre' className='modal-block__input'/>
           <Select className='user-avatar-container__select' options={ languages } name='language' />
         </div>
         <button className='button button--block button--gray' type="button" onClick={ this.createPersona }>Guardar</button>

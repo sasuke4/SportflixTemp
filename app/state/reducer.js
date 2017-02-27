@@ -6,6 +6,8 @@ const initialState = {
   location: window.location.origin,
   avatar: '',
   previousModal: '',
+  profileCreate: {},
+  accountInfo: {},
 };
 
 function reducer(state = initialState, action = {}) {
@@ -25,6 +27,14 @@ function reducer(state = initialState, action = {}) {
   case 'SET_PREVIOUS_MODAL': {
     const previousModal = action.payload;
     return Object.assign({}, state, { previousModal });
+  }
+  case 'SET_PROFILE_CREATE': {
+    const profileCreate = action.payload;
+    return Object.assign({}, state, { profileCreate });
+  }
+  case 'SET_ACCOUNT_INFO': {
+    const accountInfo = action.payload;
+    return Object.assign({}, state, { accountInfo });
   }
   default:
     return state;

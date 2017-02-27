@@ -25,3 +25,17 @@ export function setPreviousModal(previousModal) {
     payload: previousModal,
   };
 }
+
+export function setProfileCreate(profileCreate) {
+  return {
+    type: 'SET_PROFILE_CREATE',
+    payload: profileCreate,
+  };
+}
+
+export function setAccountInfo(accountInfo) {
+  return {
+    type: 'SET_ACCOUNT_INFO',
+    payload: accountInfo,
+  };
+}

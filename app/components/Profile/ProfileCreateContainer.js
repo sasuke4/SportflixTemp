@@ -6,6 +6,7 @@ function mapStateToProps(state) {
     api: state.api,
     avatar: state.avatar,
     token: state.token,
+    profileCreate: state.profileCreate,
   };
 }
 
