@@ -25,7 +25,8 @@ export default React.createClass({
       closeModal();
       dispatch(setSesion(response.payload.object));
     }).catch(error => {
-      //this.setState({ errorMessage: error.message });
+      const errorMessage = !Array.isArray(error.message) ? error.message : [ error.message ];
+      this.setState({ errorMessage });
     }
     );
   },
