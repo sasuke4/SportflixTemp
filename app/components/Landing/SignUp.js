@@ -24,7 +24,8 @@ export default React.createClass({
       console.log(response.payload.message);
       switchModal('signin');
     }).catch(error => {
-      this.setState({ errorMessage: error.message });
+      const errorMessage = Array.isArray(error.message) ? error.message : [ error.message ];
+      this.setState({ errorMessage });
     });
   },
   render() {
