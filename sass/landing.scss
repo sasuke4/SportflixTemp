@@ -25,11 +25,30 @@ body {
 .landing-top {
   background-color: $blue;
   color: $white;
+  display: flex;
   height: 60px;
+  justify-content: space-between;
   padding: 30px 85px 0;
 
+  &__img {
+    display: inline-block;
+    height: 25px;
+    width: 25px;
+  }
+
+  &__name {
+    font-size: 20px;
+    margin-left: 10px;
+    margin-top: -2px;
+    position: absolute;
+  }
+
+  &-title {
+    font-size: 25px;
+    margin: 0 auto;
+  }
+
   &__logo {
-    float: left;
     font-size: 20px;
   }
 
@@ -38,8 +57,8 @@ body {
     border: 0;
     color: $white;
     cursor: pointer;
-    float: right;
     font-size: 20px;
+    height: 25px;
   }
 }
 

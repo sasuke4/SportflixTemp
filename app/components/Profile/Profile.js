@@ -50,8 +50,10 @@ export default React.createClass({
   },
   setAccount(event) {
     const { dispatch } = this.props;
+    const { profiles } = this.state;
     const id = event.target.dataset.user;
-    dispatch(setAccountInfo({ id }));
+    const user = profiles.find(profile => Object.is(profile.id, parseInt(id, 10)));
+    dispatch(setAccountInfo(user));
   },
   render() {
     const { api, location, accountInfo } = this.props;
@@ -62,7 +64,7 @@ export default React.createClass({
 
     return (
       <div>
-        <HeaderWrapper classNameLanding={ classNameLanding } />
+        <HeaderWrapper classNameLanding={ classNameLanding } accountInfo={ accountInfo } api={ api } />
         <Modal closeModal={ this.openCloseModal } show={ showModal } location={ location } >
           { actualModal }
         </Modal>
