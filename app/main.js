@@ -10,6 +10,7 @@ import 'sass/avatar.scss';
 import 'sass/profileCreate.scss';
 import 'sass/profile.scss';
 import 'sass/menu.scss';
+import 'sass/account.scss';
 
 render(
   <Provider store={ store }>
