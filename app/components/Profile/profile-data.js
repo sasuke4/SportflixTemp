@@ -22,3 +22,10 @@ export function selectUser(idUser, profiles, api, openCloseModal, setAccount) {
            <span className='profile__text' onClick={ openCloseModal }>AÑADIR PERFIL</span>
          </div>;
 }
+
+export const menuAccount = [
+  { name: 'MI CUENTA', key: 'account' },
+  { name: 'FAVORITOS', key: 'favorites' },
+  { name: 'SUSCRIPCIÓN', key: 'subscription' },
+  { name: 'CERRAR SESIÓN', key: 'logout' },
+];

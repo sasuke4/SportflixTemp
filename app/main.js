@@ -9,6 +9,7 @@ import 'sass/plans.scss';
 import 'sass/avatar.scss';
 import 'sass/profileCreate.scss';
 import 'sass/profile.scss';
+import 'sass/menu.scss';
 
 render(
   <Provider store={ store }>
